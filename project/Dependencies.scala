@@ -20,6 +20,11 @@ object Dependencies {
   // Test
   lazy val scalaTestVersion = "3.0.5"
 
+  // HTTP
+  lazy val akkaHttpVersion = "10.1.8"
+  lazy val akkaStreamVersion = "2.5.22"
+  lazy val akkaHttpCirceVersion = "1.25.2"
+
   lazy val functionalDependencies = List(
     "org.typelevel" %% "cats-core" % catsVersion,
     "org.typelevel" %% "cats-effect" % catsEffectsVersion
@@ -46,6 +51,14 @@ object Dependencies {
     "com.beachape" %% "enumeratum" % enumeratumVersion
   )
 
-  lazy val all = functionalDependencies ++ jsonDependencies ++ testDependencies ++ csvDependencies ++ miscDependencies
+  lazy val httpDependencies = List(
+    "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
+    "com.typesafe.akka" %% "akka-stream" % akkaStreamVersion,
+    "de.heikoseeberger" %% "akka-http-circe" % akkaHttpCirceVersion,
+    "com.typesafe.akka" %% "akka-stream-testkit" % akkaStreamVersion,
+    "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion
+  )
+
+  lazy val all = functionalDependencies ++ jsonDependencies ++ testDependencies ++ csvDependencies ++ miscDependencies ++ httpDependencies
 
 }
