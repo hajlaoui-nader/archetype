@@ -13,8 +13,6 @@ import io.circe.generic.auto._
 
 object TransactionDumpRoute {
 
-  final case class TODO(s: Int, p: String)
-
   val start: ByteString = ByteString.empty
   val sep: ByteString = ByteString("\n")
   val end: ByteString = ByteString.empty

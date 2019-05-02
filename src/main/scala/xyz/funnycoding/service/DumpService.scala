@@ -12,4 +12,5 @@ trait DumpService[A] extends CsvService[A] with JsonService[A] {
 
 object DumpService {
   def apply[A](implicit ds: DumpService[A]): DumpService[A] = ds
+
 }
