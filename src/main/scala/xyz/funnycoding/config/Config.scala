@@ -8,7 +8,9 @@ import scala.concurrent.ExecutionContextExecutor
 class Config {
   val port = 8090
 
-  implicit val actorSystem: ActorSystem = ActorSystem("hello-reader")
+  implicit val actorSystem: ActorSystem = ActorSystem(
+    "transactions-dump-system"
+  )
   implicit val actorMaterializer: ActorMaterializer = ActorMaterializer()
   implicit val ec: ExecutionContextExecutor = actorSystem.dispatcher
 }
