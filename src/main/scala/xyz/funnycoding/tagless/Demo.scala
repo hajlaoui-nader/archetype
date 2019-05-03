@@ -17,6 +17,7 @@ class LiveConsole[F[_]: Sync] extends Console[F] {
   def getStrLn: F[String] =
     Sync[F].delay(scala.io.StdIn.readLine())
 }
+
 object Main {
   def run[F[_]: Monad: Console](): F[String] = {
     for {
@@ -29,6 +30,18 @@ object Main {
 
 object test extends App {
 
-  implicit val ioConsole: Console[IO] = new LiveConsole[IO]
-  Main.run[IO]().unsafeRunSync()
+  /*implicit val ioConsole: Console[IO] = new LiveConsole[IO]
+  Main.run[IO]().unsafeRunSync()*/
+
+  Sync[IO].delay(dd).attempt.unsafeRunSync() match {
+    case Left(e)  => println(s"tnekit chabeb $e")
+    case Right(v) => println(s"tnekit chabeb $v")
+  }
+
+  private def dd() = {
+    if (1 == 1) {
+      throw new RuntimeException
+
+    } else ()
+  }
 }
