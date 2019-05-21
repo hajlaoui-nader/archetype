@@ -25,6 +25,9 @@ object Dependencies {
   lazy val akkaStreamVersion = "2.5.22"
   lazy val akkaHttpCirceVersion = "1.25.2"
 
+  //Gatling
+  lazy val gatlingVersion = "3.1.2"
+
   lazy val functionalDependencies = List(
     "org.typelevel" %% "cats-core" % catsVersion,
     "org.typelevel" %% "cats-effect" % catsEffectsVersion
@@ -59,6 +62,11 @@ object Dependencies {
     "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion
   )
 
-  lazy val all = functionalDependencies ++ jsonDependencies ++ testDependencies ++ csvDependencies ++ miscDependencies ++ httpDependencies
+  lazy val gatlingDependencies = List(
+    "io.gatling.highcharts" % "gatling-charts-highcharts" % gatlingVersion % "test",
+    "io.gatling" % "gatling-test-framework" % gatlingVersion % "test"
+  )
+
+  lazy val all = functionalDependencies ++ jsonDependencies ++ testDependencies ++ csvDependencies ++ miscDependencies ++ httpDependencies ++ gatlingDependencies
 
 }
